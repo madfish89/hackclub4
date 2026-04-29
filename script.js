@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvas.getContext("2d");
   const rowsInput = document.getElementById("rows");
   const colsInput = document.getElementById("cols");
-  const cellSizeInput = document.getElementById("cellSize");
-  const colorPicker = document.getElementById("colorPicker");
-  const clearBtn = document.getElementById("clearBtn");
+  const cellSizeInput = document.getElementById("size");
+  const colorPicker = document.getElementById("cp");
+  const clearBtn = document.getElementById("clear");
   let grid = [];
   let rows = 24;
+//let rows = 36;
   let cols = 24;
   let cellSize = 23;
   let currentColor = "#000000";
@@ -30,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDrawing = false;
 
 function resizeCanvas() {
-    canvas.width = cols * cellSize;
-    canvas.height = rows * cellSize;
+    canvas.width = cols * size;
+    canvas.height = rows * size;
   }
 
   function createNewGrid() {
@@ -39,7 +40,7 @@ function resizeCanvas() {
     for (let r = 0; r < rows; r++) {
       grid[r] = [];
       for (let c = 0; c < cols; c++) {
-        grid[r][c] = "#ffffff"; // default white
+        grid[r][c] = "#ffffff";
       }
     }
   }
@@ -48,15 +49,15 @@ function drawGrid() {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        const x = c * cellSize;
-        const y = r * cellSize;
+        const x = c * size;
+        const y = r * size;
 
         ctx.fillStyle = grid[r][c];
-        ctx.fillRect(x, y, cellSize, cellSize);
+        ctx.fillRect(x, y, size, size);
 
         ctx.strokeStyle = "#e5e7eb";
         ctx.lineWidth = 1;
-        ctx.strokeRect(x, y, cellSize, cellSize);
+        ctx.strokeRect(x, y, size, size);
       }
     }
   }
@@ -65,8 +66,8 @@ function drawGrid() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const col = Math.floor(x / cellSize);
-    const row = Math.floor(y / cellSize);
+    const col = Math.floor(x / size);
+    const row = Math.floor(y / size);
 
     return { row, col };
   }
@@ -88,7 +89,7 @@ function drawGrid() {
   }
   function updateGridSize() {
     rows = parseInt(rowsInput.value) || 20;
-    cols = parseInt(colsInput.value) || 20; //
+    cols = parseInt(colsInput.value) || 20;
     const oldGrid = grid;
     createNewGrid();
 
