@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel draw</title>
+    <title>Pixel Draw</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
     <div class="container">
-        <div class="controls">
-            <h1>Pixel draw</h1>
-            
-            <label for="rows">height</label>
-            <input type="number" id="rows" value="20" min="5" max="100">
-            
-            <label for="cols">columns</label>
-            <input type="number" id="cols" value="20" min="5" max="100">
-            
-            <label for="size">graph size</label>
-            <input type="number" id="size" value="25" min="10" max="50" step="5">
-            
-            <label for="colorPicker">choose color</label>
-            <input type="color" id="cp" value="#3b82f6">
-            
-            <button id="clear">clear</button>
-        <div class="canvas-container">
-            <canvas id="gridCanvas"></canvas>
-        </div>
+        <header>
+            <h1>Pixel Draw</h1>
+            <p>Click and drag to color the grid</p>
+        </header>
         
+        <div class="app-container">
+            <div class="controls">
+                <div class="control-group">
+                    <label for="rows">Rows</label>
+                    <input type="number" id="rows" value="20" min="5" max="100">
+                </div>
+                
+                <div class="control-group">
+                    <label for="cols">Columns</label>
+                    <input type="number" id="cols" value="20" min="5" max="100">
+                </div>
+                
+                <div class="control-group">
+                    <label for="size">Cell Size</label>
+                    <input type="number" id="size" value="25" min="10" max="50" step="5">
+                </div>
+                
+                <div class="control-group">
+                    <label for="cp">Choose Color</label>
+                    <input type="color" id="cp" value="#3b82f6">
+                </div>
+                
+                <button id="clear" class="btn-clear">Clear Canvas</button>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="gridCanvas"></canvas>
+            </div>
+        </div>
     </div>
-    <script>"script.js"</script>
+    <script src="script.js"></script>
 </body>
 </html>
