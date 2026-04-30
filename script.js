@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let rows = 20;
   let cols = 20;
   let cellSize = 25;
-  let currentColor = "#3b82f6";
+  let currentColor = "#000000";
   let isDrawing = false;
 
   function init() {
