@@ -122,3 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   init();
 });
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x = c * cellSize;
+        const y = r * cellSize;
+
+        ctx.fillStyle = grid[r][c];
+        ctx.fillRect(x, y, cellSize, cellSize);
+
+        ctx.strokeStyle = "#e5e7eb";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, y, cellSize, cellSize);
+      }
+    }
