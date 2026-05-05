@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("gridCanvas");
-  const ctx = canvas.getContext("2d");
-  const rowsInput = document.getElementById("rows");
+  const canvas = document.getElementById("gridCanvas");const ctx = canvas.getContext("2d");const rowsInput = document.getElementById("rows");
   const colsInput = document.getElementById("cols");
   const cellSizeInput = document.getElementById("size");
   const colorPicker = document.getElementById("cp");
@@ -13,21 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentColor = "#000000";
   let isDrawing = false;
 
-  function init() {
-    resizeCanvas();
-    createNewGrid();
-    drawGrid();
-    canvas.addEventListener("mousedown", handleMouseDown);
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseup", () => (isDrawing = false));
-    canvas.addEventListener("mouseleave", () => (isDrawing = false));
-    
-    rowsInput.addEventListener("change", updateGridSize);
-    colsInput.addEventListener("change", updateGridSize);
-    cellSizeInput.addEventListener("change", updateCellSize);
-    colorPicker.addEventListener("input", (e) => (currentColor = e.target.value));
-    clearBtn.addEventListener("click", clearGrid);
-  }
+  function init() {resizeCanvas(); createNewGrid(); drawGrid(); canvas.addEventListener("mousedown", handleMouseDown); canvas.addEventListener("mousemove", handleMouseMove);canvas.addEventListener("mouseup", () => (isDrawing = false));canvas.addEventListener("mouseleave", () => (isDrawing = false)); rowsInput.addEventListener("change", updateGridSize); colsInput.addEventListener("change", updateGridSize);  cellSizeInput.addEventListener("change", updateCellSize);    colorPicker.addEventListener("input", (e) => (currentColor = e.target.value));    clearBtn.addEventListener("click", clearGrid);}
 
   function resizeCanvas() {
     canvas.width = cols * cellSize;
@@ -122,17 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   init();
 });
-
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const x = c * cellSize;
-        const y = r * cellSize;
-
-        ctx.fillStyle = grid[r][c];
-        ctx.fillRect(x, y, cellSize, cellSize);
-
-        ctx.strokeStyle = "#e5e7eb";
-        ctx.lineWidth = 1;
-        ctx.strokeRect(x, y, cellSize, cellSize);
-      }
-    }
