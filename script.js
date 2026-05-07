@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sizeInput = document.getElementById("size");
   const colorPicker = document.getElementById("cp");
   const clearBtn   = document.getElementById("clear");
-  const downloadBtn = document.getElementById("Download"); // id stays the same in HTML
+  const downloadBtn = document.getElementById("Download");
 
   let grid = [];
   let rows = 20;
@@ -15,13 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentColor = "#000000";
   let isDrawing = false;
 
-  /* ---------- Initialisation ---------- */
   function init() {
     resizeCanvas();
     createNewGrid();
-    drawGrid(true); // show grid lines at start
-
-    // Mouse interaction
+    drawGrid(true); 
     canvas.addEventListener("mousedown", handleMouseDown);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseup",   () => (isDrawing = false));
@@ -42,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let r = 0; r < rows; r++) {
       grid[r] = [];
       for (let c = 0; c < cols; c++) {
-        grid[r][c] = "#ffffff"; // default white
+        grid[r][c] = "#ffffff";
       }
     }
   }
@@ -61,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.fillRect(x, y, cellSize, cellSize);
 
         if (showLines) {
-          ctx.strokeStyle = "#e5e7eb"; // light gray
+          ctx.strokeStyle = "#e5e7eb";
           ctx.lineWidth   = 1;
           ctx.strokeRect(x, y, cellSize, cellSize);
         }
@@ -82,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function paintCell(row, col) {
     if (row < 0 || row >= rows || col < 0 || col >= cols) return;
     grid[row][col] = currentColor;
-    drawGrid(true); // keep the visual grid while drawing
+    drawGrid(true);
   }
 
   function handleMouseDown(e) {
@@ -139,6 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+  function handle_coc(){
+    
   }
   init();
 });
