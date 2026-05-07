@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const colorPicker = document.getElementById("cp");
   const clearBtn   = document.getElementById("clear");
   const downloadBtn = document.getElementById("Download");
-
+  const c_old_c = document.getElementById("c_old_c")
   let grid = [];
   let rows = 20;
   let cols = 20;
